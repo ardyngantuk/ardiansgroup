@@ -1,0 +1,21 @@
+
+
+/* MOVED FROM APP.CSS */
+
+/* =========================================================
+   CHECKOUT
+========================================================= */
+
+.checkout-page {
+    background: var(--brand-cream);
+}
+
+.checkout-page .checkout-shell {
+    background: var(--brand-soft);
+}
+
+.checkout-page .checkout-card {
+    box-shadow:
+        0 16px 35px rgba(33, 40, 66, 0.06);
+}
+

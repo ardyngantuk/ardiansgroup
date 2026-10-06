@@ -1,0 +1,816 @@
+.products-page {
+    background: var(--brand-cream);
+    color: var(--brand-ink);
+}
+
+.products-hero {
+    position: relative;
+    isolation: isolate;
+    box-shadow:
+        0 18px 45px rgb(33 40 66 / .08),
+        0 4px 12px rgb(33 40 66 / .04);
+}
+
+.products-hero-slide {
+    position: absolute;
+    inset: 0;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(25px);
+    transition: opacity .65s ease, transform .75s ease, visibility .65s ease;
+}
+
+.products-hero-slide.active {
+    position: relative;
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.products-hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.01);
+    transition: transform 6s ease;
+}
+
+.products-hero-slide.active .products-hero-image {
+    transform: scale(1.055);
+}
+
+.products-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgb(24 29 49 / .96) 0%, rgb(33 40 66 / .78) 36%, rgb(33 40 66 / .35) 67%, rgb(33 40 66 / .05) 100%);
+}
+
+.products-hero-content {
+    position: relative;
+    z-index: 10;
+}
+
+.hero-copy {
+    animation: heroCopyIn .7s ease both;
+}
+
+.products-hero-slide:not(.active) .hero-copy {
+    animation: none;
+}
+
+.hero-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgb(255 255 255 / .22);
+    border-radius: 999px;
+    background: rgb(24 29 49 / .35);
+    color: white;
+    backdrop-filter: blur(8px);
+    transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.hero-arrow:hover {
+    background: rgb(24 29 49 / .75);
+    border-color: rgb(255 255 255 / .4);
+    transform: scale(1.05);
+}
+
+.hero-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: rgb(255 255 255 / .4);
+    transition: width .25s ease, background .25s ease;
+}
+
+.hero-dot.active {
+    width: 24px;
+    background: var(--brand-gold);
+}
+
+.category-scroll {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.category-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.category-chip {
+    transition: transform .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.category-chip:hover {
+    transform: translateY(-2px);
+    border-color: var(--brand-gold);
+    box-shadow: 0 8px 20px rgb(33 40 66 / .06);
+}
+
+.category-chip.active {
+    background: var(--brand-indigo);
+    border-color: var(--brand-indigo);
+    color: var(--brand-cream);
+    box-shadow: 0 8px 20px rgb(33 40 66 / .14);
+}
+
+.product-card {
+    position: relative;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: rgb(182 146 89 / .65) !important;
+    box-shadow: 0 18px 40px rgb(33 40 66 / .1), 0 4px 12px rgb(33 40 66 / .04);
+}
+
+.product-image-wrap {
+    overflow: hidden;
+    background: var(--brand-soft);
+}
+
+.product-image {
+    transition: transform .45s cubic-bezier(.2, .8, .2, 1);
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.045);
+}
+
+.product-detail-button {
+    transition: background-color .2s ease, transform .2s ease;
+}
+
+.product-card:hover .product-detail-button {
+    background: var(--brand-indigo-deep);
+}
+
+.pagination-item {
+    transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.pagination-item:hover:not(.pagination-disabled) {
+    transform: translateY(-1px);
+    border-color: var(--brand-gold);
+    color: var(--brand-indigo);
+    background: var(--brand-paper);
+}
+
+.catalog-toolbar {
+    box-shadow: 0 12px 35px rgb(33 40 66 / .07), 0 3px 10px rgb(33 40 66 / .03);
+}
+
+@keyframes heroCopyIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 640px) {
+    .products-hero-overlay {
+        background: linear-gradient(90deg, rgb(24 29 49 / .94) 0%, rgb(33 40 66 / .78) 70%, rgb(33 40 66 / .35) 100%);
+    }
+
+    .hero-arrow {
+        width: 34px;
+        height: 34px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .products-page *,
+    .products-page *::before,
+    .products-page *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* MOVED FROM APP.CSS */
+
+/* =========================================================
+   PRODUCTS PAGE
+========================================================= */
+
+.products-page {
+    background: var(--brand-cream);
+    color: var(--brand-ink);
+}
+
+.products-page .soft-shadow {
+    box-shadow:
+        0 12px 30px rgba(33, 40, 66, 0.07);
+}
+
+
+/* =========================================================
+   PRODUCTS TOPBAR
+========================================================= */
+
+.products-page .topbar {
+    background: var(--brand-indigo);
+    color: var(--brand-cream);
+}
+
+.products-page .topbar .badge::before {
+    content: '• ';
+    color: var(--brand-gold);
+}
+
+
+/* =========================================================
+   PRODUCTS HERO
+========================================================= */
+
+.products-hero {
+    position: relative;
+    isolation: isolate;
+
+    max-width: 1320px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 12px 30px rgba(33, 40, 66, 0.07);
+}
+
+.products-hero-slide {
+    position: absolute;
+    inset: 0;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transform: translateX(25px);
+
+    transition:
+        opacity 0.65s ease,
+        transform 0.75s ease,
+        visibility 0.65s ease;
+}
+
+.products-hero-slide.active {
+    position: relative;
+
+    visibility: visible;
+    opacity: 1;
+
+    transform: translateX(0);
+}
+
+.products-hero-image {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transform: scale(1.01);
+
+    transition: transform 6s ease;
+}
+
+.products-hero-slide.active .products-hero-image {
+    transform: scale(1.055);
+}
+
+.products-hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(24, 29, 49, 0.96) 0%,
+            rgba(33, 40, 66, 0.78) 36%,
+            rgba(33, 40, 66, 0.35) 67%,
+            rgba(33, 40, 66, 0.05) 100%
+        );
+}
+
+.products-hero-content {
+    position: relative;
+    z-index: 10;
+
+    min-height: 360px;
+}
+
+.products-hero-slide > div {
+    min-height: 360px;
+}
+
+.hero-copy {
+    animation: heroCopyIn 0.7s ease both;
+}
+
+.products-hero-slide:not(.active) .hero-copy {
+    animation: none;
+}
+
+.hero-copy h1,
+.hero-copy h2 {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+
+    line-height: 1.08;
+
+    letter-spacing: -0.035em;
+}
+
+.hero-copy p {
+    max-width: 30rem;
+
+    margin-top: 1rem;
+
+    line-height: 1.65;
+}
+
+.hero-copy > div:last-child {
+    margin-top: 1.25rem;
+}
+
+
+/* =========================================================
+   HERO CONTROLS
+========================================================= */
+
+.hero-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+
+    background: rgba(24, 29, 49, 0.35);
+
+    color: white;
+
+    backdrop-filter: blur(8px);
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.hero-arrow:hover {
+    background: rgba(24, 29, 49, 0.75);
+
+    border-color: rgba(255, 255, 255, 0.4);
+
+    transform: scale(1.05);
+}
+
+.hero-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.4);
+
+    transition:
+        width 0.25s ease,
+        background 0.25s ease;
+}
+
+.hero-dot.active {
+    width: 24px;
+
+    background: var(--brand-gold);
+}
+
+
+/* =========================================================
+   CATALOG SEARCH / TOOLBAR
+========================================================= */
+
+.catalog-toolbar {
+    padding: 0.375rem;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 8px 24px rgba(33, 40, 66, 0.06);
+}
+
+.products-page .catalog-toolbar input {
+    height: 44px;
+}
+
+.products-page .catalog-toolbar button {
+    height: 44px;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+.category-scroll {
+    scrollbar-width: none;
+
+    -ms-overflow-style: none;
+}
+
+.category-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.products-page #kategori {
+    margin-top: 1.75rem;
+}
+
+.products-page .category-scroll {
+    margin-top: 1rem;
+
+    padding-bottom: 0.25rem;
+}
+
+.category-chip {
+    white-space: nowrap;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.category-chip:hover {
+    transform: translateY(-1px);
+
+    border-color: var(--brand-gold);
+
+    box-shadow:
+        0 6px 16px rgba(33, 40, 66, 0.06);
+}
+
+.category-chip.active {
+    background: var(--brand-indigo);
+
+    border-color: var(--brand-indigo);
+
+    color: var(--brand-cream);
+
+    box-shadow:
+        0 6px 16px rgba(33, 40, 66, 0.10);
+}
+
+.products-page .category-chip {
+    height: 40px;
+
+    border-radius: 10px;
+
+    padding-left: 0.875rem;
+    padding-right: 0.875rem;
+}
+
+
+/* =========================================================
+   CATEGORY PAGINATION
+========================================================= */
+
+.category-page-btn:hover {
+    background: var(--brand-soft) !important;
+
+    color: var(--brand-indigo) !important;
+
+    border-color: var(--brand-line) !important;
+}
+
+#categoryPagination button.bg-\[var\(--green\)\] {
+    background: var(--brand-indigo) !important;
+
+    color: var(--brand-cream) !important;
+}
+
+
+/* =========================================================
+   PRODUCT GRID
+========================================================= */
+
+.products-page #produk {
+    margin-top: 1.75rem;
+}
+
+.products-page #produk > div {
+    padding-bottom: 1rem;
+}
+
+.products-page section.grid {
+    margin-top: 1.5rem;
+}
+
+.product-card {
+    position: relative;
+
+    background: var(--brand-paper) !important;
+
+    border-color: var(--brand-line) !important;
+
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-2px);
+
+    border-color: var(--brand-line) !important;
+
+    box-shadow:
+        0 10px 24px rgba(33, 40, 66, 0.07);
+}
+
+.products-page .product-card {
+    border-radius: 14px;
+}
+
+.products-page .product-card > div:last-child {
+    padding: 0.875rem;
+}
+
+
+/* =========================================================
+   PRODUCT IMAGE
+========================================================= */
+
+.product-image-wrap {
+    overflow: hidden;
+
+    background: var(--brand-soft);
+}
+
+.product-image {
+    transition:
+        transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.035);
+}
+
+.bg-\[\#edf5ef\] {
+    background: var(--brand-soft) !important;
+}
+
+.product-card .bg-\[\#edf5ef\] {
+    background: var(--brand-soft) !important;
+}
+
+
+/* =========================================================
+   PRODUCT DETAIL BUTTON
+========================================================= */
+
+.product-detail-button {
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.product-card:hover .product-detail-button {
+    background: var(--brand-indigo-deep);
+}
+
+
+/* =========================================================
+   PRODUCT LEGACY COLORS
+========================================================= */
+
+.bg-\[var\(--green-soft\)\] {
+    background: var(--brand-soft) !important;
+
+    color: var(--brand-indigo) !important;
+}
+
+.bg-\[var\(--orange\)\] {
+    background: var(--brand-soft) !important;
+
+    color: var(--brand-indigo) !important;
+
+    border-color: var(--brand-line) !important;
+}
+
+.bg-\[var\(--green\)\] {
+    background: var(--brand-indigo) !important;
+
+    color: var(--brand-cream) !important;
+}
+
+.hover\:bg-\[var\(--green-dark\)\]:hover {
+    background: var(--brand-indigo-deep) !important;
+}
+
+.text-\[var\(--green\)\] {
+    color: var(--brand-indigo) !important;
+}
+
+.border-\[var\(--green\)\] {
+    border-color: var(--brand-indigo) !important;
+}
+
+.hover\:bg-\[var\(--green\)\]:hover {
+    background: var(--brand-indigo) !important;
+
+    color: var(--brand-cream) !important;
+}
+
+.hover\:text-\[var\(--green\)\]:hover {
+    color: var(--brand-gold) !important;
+}
+
+.hover\:border-\[var\(--green\)\]:hover {
+    border-color: var(--brand-gold) !important;
+}
+
+
+/* =========================================================
+   PRODUCT CARD LEGACY ELEMENTS
+========================================================= */
+
+.product-card .group-hover\:text-\[var\(--green\)\] {
+    transition: color 0.2s ease;
+}
+
+.product-card:hover .group-hover\:text-\[var\(--green\)\] {
+    color: var(--brand-gold) !important;
+}
+
+.product-card p.text-\[var\(--green\)\] {
+    color: var(--brand-indigo) !important;
+}
+
+.product-card .border-\[var\(--line\)\] {
+    border-color: var(--brand-line) !important;
+}
+
+.product-card .bg-\[var\(--orange\)\] {
+    background: var(--brand-soft) !important;
+
+    color: var(--brand-indigo) !important;
+
+    border: 1px solid var(--brand-line) !important;
+}
+
+.product-card span[class*='bg-[var(--green-soft)]'] {
+    background: var(--brand-soft) !important;
+
+    color: var(--brand-indigo) !important;
+
+    border: 1px solid var(--brand-line);
+}
+
+.product-card:hover span[class*='group-hover:bg-[var(--green)]'] {
+    background: var(--brand-indigo) !important;
+
+    color: var(--brand-cream) !important;
+}
+
+
+/* =========================================================
+   SEARCH BUTTON
+========================================================= */
+
+button.bg-\[var\(--green\)\] {
+    background: var(--brand-indigo) !important;
+
+    color: var(--brand-cream) !important;
+}
+
+button.bg-\[var\(--green\)\]:hover {
+    background: var(--brand-indigo-deep) !important;
+}
+
+
+/* =========================================================
+   PRODUCT PAGINATION
+========================================================= */
+
+.pagination-shell nav {
+    display: flex;
+
+    justify-content: center;
+}
+
+.pagination-shell .pagination {
+    display: inline-flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 0.45rem;
+}
+
+.pagination-shell .page-item {
+    list-style: none;
+}
+
+.pagination-shell .page-link {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 2.45rem;
+    min-height: 2.45rem;
+
+    padding: 0.5rem 0.75rem;
+
+    border-radius: 9999px;
+
+    border: 1px solid var(--brand-line);
+
+    background: var(--brand-paper);
+
+    color: var(--brand-muted);
+
+    font-size: 0.8rem;
+
+    font-weight: 700;
+
+    transition: all 0.2s ease;
+}
+
+.pagination-shell .page-item.active .page-link {
+    background: var(--brand-indigo);
+
+    border-color: var(--brand-indigo);
+
+    color: var(--brand-cream);
+}
+
+.pagination-shell .page-item.disabled .page-link {
+    opacity: 0.4;
+
+    pointer-events: none;
+}
+
+.pagination-shell .page-link:hover {
+    border-color: var(--brand-gold);
+
+    color: var(--brand-indigo);
+
+    background: var(--brand-soft);
+}
+
+.pagination-item {
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.pagination-item:hover:not(.pagination-disabled) {
+    transform: translateY(-1px);
+
+    border-color: var(--brand-gold);
+
+    color: var(--brand-indigo);
+
+    background: var(--brand-paper);
+}
+
+.products-page section.border-t {
+    margin-top: 2rem;
+
+    padding-top: 1.5rem;
+}
+
+
+/* =========================================================
+   HOME SECTION BACKGROUND
+========================================================= */
+
+.home-page section.bg-\[var\(--bg\)\] {
+    background: var(--brand-cream) !important;
+}
+

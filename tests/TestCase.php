@@ -1,0 +1,27 @@
+<?php
+
+namespace Tests;
+
+use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+abstract class TestCase extends BaseTestCase
+{
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        if (! Schema::hasTable('settings')) {
+            Schema::create('settings', function (Blueprint $table): void {
+                $table->id();
+                $table->string('key', 120)->unique();
+                $table->text('value')->nullable();
+                $table->string('group', 40);
+                $table->string('type', 20)->default('string');
+                $table->timestamps();
+                $table->index('group');
+            });
+        }
+    }
+}

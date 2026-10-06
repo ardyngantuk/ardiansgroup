@@ -1,0 +1,156 @@
+.cart-page {
+            background:
+                radial-gradient(
+                    circle at 85% 0%,
+                    rgb(182 146 89 / .07),
+                    transparent 30%
+                ),
+                var(--brand-paper);
+            color: var(--brand-ink);
+}
+
+        /* =========================================
+           CART ITEM
+        ========================================== */
+
+        .cart-product {
+            transition:
+                background-color .25s ease,
+                transform .25s ease,
+                box-shadow .25s ease;
+        }
+
+        .cart-product:hover {
+            background: rgba(247, 242, 232, .55);
+        }
+
+        .cart-image {
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff 0%,
+                    #f7f2e8 100%
+                );
+        }
+
+        /* =========================================
+           QUANTITY
+        ========================================== */
+
+        .cart-input {
+            appearance: none;
+            -moz-appearance: textfield;
+        }
+
+        .cart-input::-webkit-inner-spin-button,
+        .cart-input::-webkit-outer-spin-button {
+            opacity: 1;
+        }
+
+        .cart-input:focus {
+            border-color: var(--brand-gold);
+            box-shadow: 0 0 0 3px rgb(182 146 89 / .1);
+        }
+
+        /* =========================================
+           SUMMARY
+        ========================================== */
+
+        .summary-card {
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff 0%,
+                    #fcfaf5 100%
+                );
+
+            box-shadow:
+                0 20px 60px rgba(33, 40, 66, .08),
+                0 4px 14px rgba(33, 40, 66, .04);
+        }
+
+        .checkout-button {
+            box-shadow:
+                0 12px 24px rgba(33, 40, 66, .15);
+        }
+
+        .checkout-button:hover {
+            box-shadow:
+                0 16px 30px rgba(33, 40, 66, .20);
+        }
+
+        /* =========================================
+           SMALL DETAILS
+        ========================================== */
+
+        .soft-divider {
+            border-color: rgba(221, 213, 198, .75);
+        }
+
+        /* =========================================
+           MOBILE
+        ========================================== */
+
+        @media (max-width: 639px) {
+
+            .cart-product {
+                padding-top: 18px;
+                padding-bottom: 18px;
+            }
+
+        }
+
+/* MOVED FROM APP.CSS */
+
+/* =========================================================
+   CART
+========================================================= */
+
+.cart-page {
+    background: var(--brand-cream);
+}
+
+.cart-page .cart-card {
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.cart-page .cart-card:hover {
+    transform: translateY(-2px);
+
+    border-color: var(--brand-gold);
+
+    box-shadow:
+        0 12px 25px rgba(33, 40, 66, 0.07);
+}
+
+.cart-page .summary-card {
+    box-shadow:
+        0 16px 35px rgba(33, 40, 66, 0.07);
+}
+
+.cart-input:focus {
+    border-color: var(--brand-indigo);
+
+    box-shadow:
+        0 0 0 3px rgba(33, 40, 66, 0.08);
+}
+
+.cart-row {
+    transition: background-color 0.2s ease;
+}
+
+.cart-row:hover {
+    background: #faf8f3;
+}
+
+.cart-row:hover .product-arrow {
+    transform: translateX(3px);
+}
+
+.product-arrow {
+    transition: transform 0.2s ease;
+}
+

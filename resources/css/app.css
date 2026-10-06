@@ -1,0 +1,440 @@
+@import 'tailwindcss';
+@import './components/header.css';
+@import './pages/cart.css';
+@import './pages/checkout.css';
+@import './pages/orders.css';
+@import './pages/products.css';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+
+/* =========================================================
+   ARDIAN'S — BRAND SYSTEM
+========================================================= */
+
+:root {
+    --brand-cream: #f0e7d5;
+    --brand-indigo: #212842;
+    --brand-indigo-soft: #303750;
+    --brand-indigo-deep: #181d31;
+
+    --brand-gold: #b69259;
+    --brand-gold-soft: #d8bd8a;
+
+    --brand-paper: #fcfaf5;
+    --brand-soft: #f3eee3;
+
+    --brand-line: #ddd5c6;
+    --brand-ink: #25263a;
+    --brand-muted: #6c6b72;
+
+    /* Legacy variables */
+    --bg: #f0e7d5;
+    --green: #212842;
+    --green-dark: #181d31;
+    --green-soft: #f3eee3;
+    --orange: #e8d3a8;
+    --ink: #25263a;
+    --muted: #6c6b72;
+    --line: #ddd5c6;
+}
+
+
+/* =========================================================
+   TAILWIND THEME
+========================================================= */
+
+@theme {
+    --font-sans:
+        'Instrument Sans',
+        ui-sans-serif,
+        system-ui,
+        sans-serif,
+        'Apple Color Emoji',
+        'Segoe UI Emoji',
+        'Segoe UI Symbol',
+        'Noto Color Emoji';
+}
+
+
+/* =========================================================
+   BASE
+========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   SHARED STOREFRONT
+========================================================= */
+
+.storefront-page,
+.cart-page,
+.checkout-page,
+.orders-page,
+.product-detail-page,
+.products-page {
+    background: var(--brand-cream);
+    color: var(--brand-ink);
+    font-family: 'DM Sans', sans-serif;
+}
+
+.font-display {
+    font-family: 'Fraunces', Georgia, serif;
+}
+
+.storefront-page .font-display,
+.products-page .font-display,
+.checkout-page .font-display,
+.orders-page .font-display,
+.product-detail-page .font-display {
+    font-family: 'Fraunces', Georgia, serif;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand-mark {
+    display: grid;
+    place-items: center;
+
+    width: 2.5rem;
+    height: 2.5rem;
+
+    border: 1px solid var(--brand-gold);
+
+    color: var(--brand-gold);
+
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.15rem;
+    font-style: italic;
+}
+
+.brand-name {
+    color: var(--brand-indigo);
+
+    font-family: 'Playfair Display', Georgia, serif;
+
+    font-size: 1.3rem;
+    font-weight: 700;
+
+    letter-spacing: -0.04em;
+}
+
+
+/* =========================================================
+   STOREFRONT COLOR OVERRIDES
+========================================================= */
+
+.storefront-page .bg-emerald-700,
+.storefront-page .bg-\[\#11100E\],
+.cart-page .bg-emerald-700,
+.checkout-page .bg-emerald-700,
+.orders-page .bg-emerald-700,
+.product-detail-page .bg-emerald-700 {
+    background-color: var(--brand-indigo) !important;
+}
+
+.storefront-page .hover\:bg-emerald-800:hover,
+.cart-page .hover\:bg-emerald-800:hover,
+.checkout-page .hover\:bg-emerald-800:hover {
+    background-color: var(--brand-indigo-deep) !important;
+}
+
+.storefront-page .text-emerald-700,
+.storefront-page .hover\:text-emerald-700:hover,
+.cart-page .text-emerald-700,
+.checkout-page .text-emerald-700,
+.orders-page .text-emerald-700,
+.product-detail-page .text-emerald-700 {
+    color: var(--brand-indigo) !important;
+}
+
+.storefront-page .border-slate-200,
+.storefront-page .border-slate-300,
+.cart-page .border-slate-200,
+.cart-page .border-slate-300,
+.checkout-page .border-slate-200,
+.checkout-page .border-slate-300,
+.orders-page .border-slate-200,
+.orders-page .border-slate-300,
+.product-detail-page .border-slate-200,
+.product-detail-page .border-slate-300 {
+    border-color: var(--brand-line) !important;
+}
+
+.storefront-page .bg-slate-50,
+.cart-page .bg-slate-50,
+.checkout-page .bg-slate-50,
+.orders-page .bg-slate-50 {
+    background-color: var(--brand-soft) !important;
+}
+
+.storefront-page .text-slate-900,
+.storefront-page .text-slate-950,
+.cart-page .text-slate-900,
+.cart-page .text-slate-950 {
+    color: var(--brand-ink) !important;
+}
+
+.storefront-page .text-slate-500,
+.storefront-page .text-slate-600,
+.cart-page .text-slate-500,
+.cart-page .text-slate-600 {
+    color: var(--brand-muted) !important;
+}
+
+
+/* =========================================================
+   HOME PAGE
+========================================================= */
+
+.home-page {
+    margin: 0;
+
+    background: var(--brand-cream);
+    color: var(--brand-ink);
+
+    font-family: 'DM Sans', sans-serif;
+}
+
+.home-page .hero-image {
+    transition: opacity 0.55s ease;
+}
+
+.home-page .product-card,
+.home-page .category-link,
+.home-page .shop-block {
+    transition:
+        transform 0.18s ease,
+        border-color 0.18s ease,
+        box-shadow 0.18s ease,
+        background-color 0.18s ease;
+}
+
+.home-page .product-card:hover {
+    transform: translateY(-3px);
+
+    border-color: var(--brand-gold);
+
+    box-shadow:
+        0 12px 25px rgba(33, 40, 66, 0.08);
+}
+
+.home-page .category-link:hover {
+    border-color: var(--brand-indigo);
+
+    box-shadow:
+        0 7px 18px rgba(33, 40, 66, 0.09);
+}
+
+.home-page .shop-block:hover {
+    transform: translateY(-2px);
+}
+
+.home-page .fade-up {
+    animation: fadeUp 0.5s ease both;
+}
+
+.home-page .fade-up-delay {
+    animation: fadeUp 0.5s 0.1s ease both;
+}
+
+
+/* =========================================================
+   HOME NAVIGATION
+========================================================= */
+
+.home-page a.text-\[var\(--ink\)\]:hover {
+    color: var(--brand-gold) !important;
+}
+
+.home-page a.text-\[var\(--green\)\] {
+    color: var(--brand-indigo) !important;
+}
+
+.home-page a.text-\[var\(--green\)\]:hover {
+    color: var(--brand-gold) !important;
+}
+
+.home-page a.bg-\[var\(--green\)\] {
+    background: var(--brand-indigo) !important;
+    color: var(--brand-cream) !important;
+}
+
+.home-page a.bg-\[var\(--green\)\]:hover {
+    background: var(--brand-indigo-deep) !important;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroCopyIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   ADMIN
+========================================================= */
+
+.admin-page {
+    background: var(--brand-cream) !important;
+
+    color: var(--brand-ink) !important;
+
+    font-family: 'DM Sans', sans-serif;
+}
+
+.admin-page .font-serif {
+    font-family:
+        'Playfair Display',
+        Georgia,
+        serif !important;
+}
+
+.admin-sidebar {
+    background: var(--brand-indigo);
+}
+
+.admin-sidebar .brand-mark {
+    border-color: var(--brand-gold);
+
+    color: var(--brand-gold);
+}
+
+.admin-sidebar .nav-active {
+    background: var(--brand-cream);
+
+    color: var(--brand-indigo);
+}
+
+.admin-sidebar .nav-link:hover {
+    background: rgb(240 231 213 / 10%);
+
+    color: var(--brand-cream);
+}
+
+.admin-topbar {
+    background: rgb(240 231 213 / 92%);
+
+    border-color: var(--brand-line);
+}
+
+.admin-main {
+    border-color: var(--brand-line);
+}
+
+
+/* =========================================================
+   ADMIN LOGIN
+========================================================= */
+
+.admin-login-page {
+    background: var(--brand-indigo);
+
+    color: #f2eee5;
+
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        sans-serif;
+}
+
+.admin-login-page ::selection {
+    background: var(--brand-gold);
+
+    color: var(--brand-indigo);
+}
+
+.admin-login-page input:-webkit-autofill,
+.admin-login-page input:-webkit-autofill:hover,
+.admin-login-page input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #f2eee5;
+
+    -webkit-box-shadow:
+        0 0 0 1000px var(--brand-indigo-deep) inset;
+
+    transition:
+        background-color 9999s ease-in-out 0s;
+}
+
+.admin-login-page .grain {
+    background-image:
+        radial-gradient(
+            rgba(255, 255, 255, 0.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 4px 4px;
+}
+
+
+/* =========================================================
+   GENERAL BUTTONS
+========================================================= */
+
+button.bg-\[var\(--green-soft\)\] {
+    background: var(--brand-soft) !important;
+
+    color: var(--brand-indigo) !important;
+
+    border-color: var(--brand-line) !important;
+}
+
+button.bg-\[var\(--green-soft\)\]:hover {
+    background: var(--brand-paper) !important;
+
+    border-color: var(--brand-gold) !important;
+
+    color: var(--brand-indigo) !important;
+}

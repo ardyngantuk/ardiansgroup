@@ -1,0 +1,92 @@
+.orders-page {
+    background: var(--brand-paper);
+    color: var(--brand-ink);
+}
+
+.orders-input::placeholder {
+    color: #a19f99;
+}
+
+.orders-input:focus {
+    border-color: var(--brand-gold);
+    box-shadow: 0 0 0 3px rgb(182 146 89 / .1);
+}
+
+.saved-order-row {
+    transition:
+        background-color .2s ease,
+        padding-left .2s ease,
+        padding-right .2s ease;
+}
+
+.saved-order-row:hover {
+    background: #f8f4eb;
+}
+
+.saved-order-row:hover .order-arrow {
+    transform: translateX(3px);
+}
+
+.order-arrow {
+    transition: transform .2s ease;
+}
+
+/* MOVED FROM APP.CSS */
+
+/* =========================================================
+   ORDER TRACKING
+========================================================= */
+
+.order-page {
+    background: var(--brand-indigo) !important;
+
+    color: var(--brand-cream) !important;
+
+    font-family: 'DM Sans', sans-serif;
+}
+
+.order-page .order-panel {
+    border-color: rgba(182, 146, 89, 0.34);
+
+    background:
+        rgba(24, 29, 49, 0.78);
+}
+
+.order-page .order-hero {
+    background:
+        radial-gradient(
+            circle at 50% 0,
+            rgba(182, 146, 89, 0.16),
+            transparent 38%
+        ),
+        linear-gradient(
+            135deg,
+            var(--brand-indigo) 0%,
+            var(--brand-indigo-deep) 100%
+        );
+}
+
+.order-page .order-check {
+    box-shadow:
+        0 0 0 8px rgba(182, 146, 89, 0.1),
+        0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+.order-page .order-muted {
+    color: #c9c0ae;
+}
+
+.order-page .order-line {
+    border-color: rgba(182, 146, 89, 0.22);
+}
+
+.order-page .gold-button {
+    background: var(--brand-gold);
+
+    color: var(--brand-indigo);
+}
+
+.order-page .gold-button:hover {
+    background: #c6a15b;
+}
+
